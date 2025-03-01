@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nicholas Fantino-Dyer – Portfolio</title>
+  <!-- Favicon (optional) -->
+  <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+  <style>
+    /* =====================
+       GLOBAL STYLES
+    ===================== */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #eee;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #62dafb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1, h2, h3, h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    /* =====================
+       NAVIGATION
+    ===================== */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #1f1f1f;
+      z-index: 999;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #bb86fc;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-links a {
+        margin-left: 1rem;
+        font-weight: 500;
+        transition: color 0.2s ease;
+    }
+
+    .header-links a:hover {
+        color: #bb86fc;
+    }
+
+
+    /* =====================
+       MAIN CONTENT WRAPPER
+    ===================== */
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    /* =====================
+       ABOUT SECTION
+    ===================== */
+    #about .about-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    #about .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #333;
+      margin-bottom: 1rem;
+      /* Example placeholder: you can replace with an actual <img> tag */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #aaa;
+    }
+
+    .profile-photo {
+        /* The container can have its own size if you wish, or you can size the img directly. */
+        width: 120px; 
+        height: 120px; 
+        overflow: hidden; /* Ensures no overflow if the image is bigger */
+        border-radius: 50%;
+    }
+
+    .profile-photo img {
+        width: 100%;       /* Fill the container's width */
+        height: 100%;      /* Fill the container's height */
+        object-fit: cover; /* Crop/zoom the image so it fills the circle */
+        border-radius: 50%;
+    }
+
+    /* =====================
+       EXPERIENCE SECTION
+    ===================== */
+    .experience-item {
+      background-color: #1f1f1f;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+
+    .experience-item h3 {
+      margin-bottom: 0.25rem;
+    }
+
+    .experience-item p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* =====================
+       EDUCATION SECTION
+    ===================== */
+    .education-item {
+      background-color: #1f1f1f;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+
+    /* =====================
+       PROJECTS SECTION
+    ===================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      background-color: #1f1f1f;
+      padding: 1rem;
+      border-radius: 5px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card .project-image {
+      background-color: #333;
+      height: 140px;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .project-card .btn {
+      background-color: #333;
+      padding: 0.5rem 0.75rem;
+      border: none;
+      border-radius: 3px;
+      color: #eee;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .project-card .btn:hover {
+      background-color: #444;
+    }
+
+    /* =====================
+       MODAL (PROJECT DETAILS)
+    ===================== */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1000; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #1f1f1f;
+      margin: 1rem;
+      padding: 1.5rem;
+      border-radius: 5px;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: #bbb;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .close-modal:hover {
+      color: #fff;
+    }
+
+    .project-image {
+        width: 100%;
+        max-height: 300px;  /* Limit maximum height */
+        overflow: hidden;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .project-image img {
+        max-height: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+
+
+
+    /* =====================
+       SKILLS SECTION
+    ===================== */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .skill-badge {
+      background-color: #333;
+      padding: 0.4rem 0.7rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+    }
+
+    /* =====================
+       FOOTER
+    ===================== */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1f1f1f;
+      color: #888;
+    }
+
+    /* =====================
+       RESPONSIVE
+    ===================== */
+    @media (max-width: 600px) {
+      .container {
+        margin: 1rem auto;
+        padding: 0 1rem;
+      }
+      #about .about-header {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== NAVIGATION ========== -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <div class="container">
+    <div class="header-links">
+        <a href="https://www.linkedin.com/in/nfantinodyer" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/nfantinodyer" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about">
+      <div class="about-header">
+        <!-- Replace the div below with an actual <img> tag for your photo -->
+        <div class="profile-photo">
+          <img src="images\profileImage.jpg" alt="NFD">
+        </div>
+        <h1>Nicholas Fantino-Dyer (He/Him)</h1>
+        <p>
+          Software dev blending ML, cloud, and game dev to build reliable solutions.  
+          Passionate about problem solving, exploring new systems, and collaboration.
+        </p>
+      </div>
+      <div>
+        <h3>Achievements</h3>
+        <p>
+          I earned first place in my Senior Capstone Project by creating a Unity-based maze simulation 
+          that used Q-Learning and Evolutionary models for optimal pathfinding, and was also honored 
+          on the 2024 Dean's Honor Roll. At Pacific Technology, I led the migration from Ellucian Banner 8 to Banner 9, 
+          documented pages, migrated COBOL scripts to SQL for a 25% efficiency boost, and oversaw research, testing, and troubleshooting. 
+          I developed and published the mobile game <em>Gunslinger</em> in Unity, available on Google Play. 
+          I integrated Cloudflare Workers with Grafana to automate data collection. My research on Linux vs. Windows efficiency 
+          used Intel PCM and Python to uncover anomalies and confirm Linux’s superior performance. Lastly, I designed a custom 
+          MIPS instruction to count non-occurrences in an array, improving CPU functionality. I built a Python scraper for Oak Meadow 
+          Dental Center, saving staff 30 minutes a day.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== EXPERIENCE SECTION ========== -->
+    <section id="experience">
+      <h2>Experience</h2>
+      
+      <!-- ERP Developer -->
+      <div class="experience-item">
+        <h3>ERP Developer</h3>
+        <p><strong>University of the Pacific</strong> (April 2023 – December 2023)</p>
+        <ul>
+          <li>Orchestrated migration from Ellucian Banner 8 to Banner 9.</li>
+          <li>Documented existing pages, ensuring seamless transition.</li>
+          <li>Created a model to migrate COBOL scripts to SQL and increased efficiency by 25%.</li>
+          <li>Led research, testing, and troubleshooting.</li>
+        </ul>
+      </div>
+
+      <!-- IT, Receptionist, Dental Assistant -->
+      <div class="experience-item">
+        <h3>IT, Receptionist, Dental Assistant</h3>
+        <p><strong>Oak Meadow Dental Center</strong> (June 2016 – December 2022)</p>
+        <ul>
+          <li>Provided IT support for the office and updated computers/software.</li>
+          <li>Automated repetitive daily tasks with Python, saving staff 30 minutes a day.</li>
+          <li>Assisted doctors/hygienists with clinical procedures.</li>
+          <li>Trained new employees on office policies and procedures.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== EDUCATION SECTION ========== -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="education-item">
+        <h3>Santa Clara University (June 2026)</h3>
+        <p>MS, Computer Science, 3.66 / 3.66 GPA</p>
+      </div>
+      <div class="education-item">
+        <h3>University of the Pacific (May 2024)</h3>
+        <p>BS, Computer Science, 3.03 / 4.00 GPA</p>
+      </div>
+    </section>
+
+    <!-- ========== PROJECTS SECTION ========== -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <!-- Gunslinger -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\gunslinger.png" alt="[ Gunslinger Screenshot ]">
+          </div>
+          <h4>Gunslinger</h4>
+          <p>The player shoots a gun down a randomized linear path.</p>
+          <button class="btn" data-modal="gunslingerModal">View Details</button>
+        </div>
+
+        <!-- Path Finding Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\pathfindingproject.png" alt="[ Path Finding Screenshot ]">
+          </div>
+          <h4>Path Finding Project</h4>
+          <p>Comparing the effectiveness of different ML models.</p>
+          <button class="btn" data-modal="pathfindingModal">View Details</button>
+        </div>
+
+        <!-- Oak Meadow Dental Center Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\pmojo.png" alt="[ Dental Project Screenshot ]">
+          </div>
+          <h4>Oak Meadow Dental Center Project</h4>
+          <p>Screen scraper program to simulate a human getting data.</p>
+          <button class="btn" data-modal="oakModal">View Details</button>
+        </div>
+
+        <!-- Linux vs Windows Energy Efficiency -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\cpuenergyestimation.png" alt="[ Linux vs Windows Screenshot ]">
+          </div>
+          <h4>Linux vs Windows Energy Efficiency</h4>
+          <p>Analyzed energy efficiency of CPUs in Linux and Windows.</p>
+          <button class="btn" data-modal="linuxModal">View Details</button>
+        </div>
+
+        <!-- Cloudflare Worker Automation Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\grafanascreenshot.png" alt="[ Cloudflare Worker Screenshot ]">
+          </div>
+          <h4>Cloudflare Worker Automation</h4>
+          <p>Integrated Cloudflare Workers with Grafana.</p>
+          <button class="btn" data-modal="cloudflareModal">View Details</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SKILLS SECTION ========== -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <span class="skill-badge">Python</span>
+        <span class="skill-badge">JavaScript</span>
+        <span class="skill-badge">Java</span>
+        <span class="skill-badge">C++</span>
+        <span class="skill-badge">C</span>
+        <span class="skill-badge">C#</span>
+        <span class="skill-badge">SQL</span>
+        <span class="skill-badge">Linux</span>
+        <span class="skill-badge">Cloudflare</span>
+        <span class="skill-badge">Grafana</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>&copy; 2025 Nicholas Fantino-Dyer</p>
+  </footer>
+
+  <!-- ========== MODALS FOR PROJECT DETAILS ========== -->
+  <!-- Gunslinger Modal -->
+  <div class="modal" id="gunslingerModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>Gunslinger</h3>
+      <p>
+        In this game, the player goes down a linear randomly generated path. 
+        Brawler and gunner enemies can decrease your damage if you are hit by them. 
+        Collect boosts and reach the end to receive your gold prize!
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Developed in Unity (C#).<br/>
+        &bull; Deployed on Google Play Store.<br/>
+        &bull; Weekly prototypes shared with peers.
+      </p>
+      <a href="https://play.google.com/store/apps/details?id=com.NFDGames.Gunslinger&hl=en_US" target="_blank" rel="noopener noreferrer">
+        Visit on Google Play
+      </a>
+    </div>
+  </div>
+
+  <!-- Pathfinding Modal -->
+  <div class="modal" id="pathfindingModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>Path Finding Project</h3>
+      <p>
+        Developed a maze simulation in Unity (C#) where a Q-Learning model and an 
+        Evolutionary model compete to learn the optimal route to the end. 
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Used A* algorithm to visualize the optimal path.<br/>
+        &bull; Received first place in Senior Capstone Project.
+      </p>
+      <a href="https://github.com/nfantinodyer/SeniorProject" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- Oak Meadow Modal -->
+  <div class="modal" id="oakModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>Oak Meadow Dental Center Project</h3>
+      <p>
+        Screen scraper program to simulate a human retrieving data and inputting it into dental software.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Used Selenium and pywinauto for automation.<br/>
+        &bull; Saved staff 30 minutes daily.
+      </p>
+      <a href="https://github.com/nfantinodyer/pmojo" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- Linux vs Windows Modal -->
+  <div class="modal" id="linuxModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>Linux vs Windows Energy Efficiency</h3>
+      <p>
+        Analyzed energy efficiency of Linux and Windows under various workloads using Intel PCM and Python.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Investigated anomalies (negative energy values, CPU > 100%).<br/>
+        &bull; Confirmed Linux’s superior performance with regression models and scatter plots.
+      </p>
+      <a href="https://github.com/nfantinodyer/CPUEnergyEstimation" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- Cloudflare Worker Modal -->
+  <div class="modal" id="cloudflareModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>Cloudflare Worker Automation Project</h3>
+      <p>
+        Integrated Cloudflare Workers with Grafana to fetch real-time data and visualize it for 
+        performance monitoring and troubleshooting.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Automated data collection and processing pipelines.<br/>
+        &bull; Developed a script to dynamically generate and refresh API keys.
+      </p>
+      <a href="https://nfantinodyer.grafana.net/public-dashboards/c21ba4f2c80a45a488836a89e703b17e" target="_blank" rel="noopener noreferrer">
+        View on Grafana
+      </a>
+    </div>
+  </div>
+
+  <!-- ========== JS FOR MODALS ========== -->
+  <script>
+    // Open modal
+    document.querySelectorAll('.btn[data-modal]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const modalId = this.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.style.display = 'flex';
+        }
+      });
+    });
+
+    // Close modal
+    document.querySelectorAll('.close-modal').forEach(closeBtn => {
+      closeBtn.addEventListener('click', function() {
+        this.closest('.modal').style.display = 'none';
+      });
+    });
+
+    // Close modal when clicking outside the modal-content
+    window.addEventListener('click', function(e) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
