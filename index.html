@@ -441,6 +441,16 @@
     <section id="projects">
       <h2>Projects</h2>
       <div class="projects-grid">
+        <!-- RecallFlow -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\recallflow.png" alt="[ RecallFlow Screenshot ]">
+          </div>
+          <h4>RecallFlow</h4>
+          <p>SaaS platform for automated dental appointment reminders.</p>
+          <button class="btn" data-modal="recallflowModal">View Details</button>
+        </div>
+
         <!-- Gunslinger -->
         <div class="project-card">
           <div class="project-image">
@@ -461,16 +471,6 @@
           <button class="btn" data-modal="pathfindingModal">View Details</button>
         </div>
 
-        <!-- Oak Meadow Dental Center Project -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="images\pmojo.png" alt="[ Dental Project Screenshot ]">
-          </div>
-          <h4>Clinic Automation</h4>
-          <p>Screen scraper program to automate repetitive data entry.</p>
-          <button class="btn" data-modal="oakModal">View Details</button>
-        </div>
-
         <!-- Cloudflare Worker Automation Project -->
         <div class="project-card">
           <div class="project-image">
@@ -481,6 +481,26 @@
           <button class="btn" data-modal="cloudflareModal">View Details</button>
         </div>
 
+        <!-- Oak Meadow Dental Center Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\pmojo.png" alt="[ Dental Project Screenshot ]">
+          </div>
+          <h4>Clinic Automation</h4>
+          <p>Screen scraper program to automate repetitive data entry.</p>
+          <button class="btn" data-modal="oakModal">View Details</button>
+        </div>
+
+        <!-- SQL ChatBot -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\sqlchatbot.png" alt="[ SQL ChatBot Screenshot ]">
+          </div>
+          <h4>SQL ChatBot</h4>
+          <p>Natural language interface for database queries using AI.</p>
+          <button class="btn" data-modal="sqlchatbotModal">View Details</button>
+        </div>
+
         <!-- Linux vs Windows Energy Efficiency -->
         <div class="project-card">
           <div class="project-image">
@@ -489,6 +509,86 @@
           <h4>Linux vs Windows Energy Efficiency</h4>
           <p>Analyzed energy efficiency of CPUs in Linux and Windows.</p>
           <button class="btn" data-modal="linuxModal">View Details</button>
+        </div>
+
+        <!-- AI Creating App -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\aicreating.png" alt="[ AI Creating App Screenshot ]">
+          </div>
+          <h4>AI Creating App</h4>
+          <p>Python application for AI-powered content generation.</p>
+          <button class="btn" data-modal="aicreatingModal">View Details</button>
+        </div>
+
+        <!-- Rust OS -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\rustos.png" alt="[ Rust OS Screenshot ]">
+          </div>
+          <h4>Rust OS</h4>
+          <p>Operating system kernel development in Rust.</p>
+          <button class="btn" data-modal="rustosModal">View Details</button>
+        </div>
+
+        <!-- UDP Payload -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\udppayload.png" alt="[ UDP Payload Screenshot ]">
+          </div>
+          <h4>UDP Payload</h4>
+          <p>Network programming project implementing UDP communication.</p>
+          <button class="btn" data-modal="udpModal">View Details</button>
+        </div>
+
+        <!-- Patient Eligibility -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\patienteligibility.png" alt="[ Patient Eligibility Screenshot ]">
+          </div>
+          <h4>Patient Eligibility</h4>
+          <p>Automated patient insurance eligibility verification system.</p>
+          <button class="btn" data-modal="patienteligibilityModal">View Details</button>
+        </div>
+
+        <!-- MIPS to Binary -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\mipstobinary.png" alt="[ MIPS to Binary Screenshot ]">
+          </div>
+          <h4>MIPS to Binary Converter</h4>
+          <p>Assembler that converts MIPS assembly to machine code.</p>
+          <button class="btn" data-modal="mipsModal">View Details</button>
+        </div>
+
+        <!-- Words -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\words.png" alt="[ Words Screenshot ]">
+          </div>
+          <h4>Words</h4>
+          <p>Anagram and word search tool for finding possible words.</p>
+          <button class="btn" data-modal="wordsModal">View Details</button>
+        </div>
+
+        <!-- Job Apply -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\jobapply.png" alt="[ Job Apply Screenshot ]">
+          </div>
+          <h4>Job Apply Automation</h4>
+          <p>Script to streamline and automate job application processes.</p>
+          <button class="btn" data-modal="jobapplyModal">View Details</button>
+        </div>
+
+        <!-- Wub Game -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images\wubgame.png" alt="[ Wub Game Screenshot ]">
+          </div>
+          <h4>Wub Game</h4>
+          <p>Browser-based game built with HTML/JavaScript.</p>
+          <button class="btn" data-modal="wubgameModal">View Details</button>
         </div>
       </div>
     </section>
@@ -619,6 +719,175 @@
         &bull; Performed comprehensive performance analysis under different workload conditions.
       </p>
       <a href="https://github.com/nfantinodyer/CPUEnergyEstimation" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- RecallFlow Modal -->
+  <div class="modal" id="recallflowModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>RecallFlow</h3>
+      <p>
+        Production-ready SaaS platform for automating dental appointment reminders. Built from concept 
+        to full deployment with comprehensive billing, authentication, and reminder functionality.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Implemented Stripe integration for subscription billing.<br/>
+        &bull; JWT authentication and secure user management.<br/>
+        &bull; Cloudflare Workers KV storage optimization.<br/>
+        &bull; Automated appointment reminder system for dental practices.<br/>
+        &bull; Full-stack development with Node.js and JavaScript.
+      </p>
+      <a href="https://github.com/nfantinodyer/RecallFlow" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- SQL ChatBot Modal -->
+  <div class="modal" id="sqlchatbotModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>SQL ChatBot</h3>
+      <p>
+        Natural language interface for database queries using AI. Allows users to interact with 
+        databases using conversational language instead of SQL syntax.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Built with Python and AI/ML technologies.<br/>
+        &bull; Translates natural language to SQL queries.<br/>
+        &bull; Simplifies database interaction for non-technical users.
+      </p>
+      <a href="https://github.com/nfantinodyer/SQLChatBot" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- AI Creating App Modal -->
+  <div class="modal" id="aicreatingModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>AI Creating App</h3>
+      <p>
+        Python application that leverages AI for automated content generation and creative tasks.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Developed in Python.<br/>
+        &bull; Integrates AI/ML models for content creation.<br/>
+        &bull; Demonstrates practical AI application development.
+      </p>
+      <a href="https://github.com/nfantinodyer/AiCreatingApp" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- Rust OS Modal -->
+  <div class="modal" id="rustosModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>Rust OS</h3>
+      <p>
+        Low-level operating system kernel development project built in Rust, exploring systems 
+        programming and OS fundamentals.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Written in Rust for memory safety and performance.<br/>
+        &bull; Hands-on experience with kernel development.<br/>
+        &bull; Deep dive into operating system architecture.
+      </p>
+      <a href="https://github.com/nfantinodyer/Rust_os" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- UDP Payload Modal -->
+  <div class="modal" id="udpModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>UDP Payload</h3>
+      <p>
+        Network programming project implementing UDP communication protocols in C. Focuses on 
+        understanding low-level networking and packet handling.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Implemented in C for performance and control.<br/>
+        &bull; UDP socket programming and packet manipulation.<br/>
+        &bull; Network security and protocol analysis.
+      </p>
+      <a href="https://github.com/nfantinodyer/UDP-Payload" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- Patient Eligibility Modal -->
+  <div class="modal" id="patienteligibilityModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>Patient Eligibility</h3>
+      <p>
+        Automated system for verifying patient insurance eligibility in dental practices. 
+        Streamlines the eligibility verification process and reduces manual work.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Python automation for healthcare workflows.<br/>
+        &bull; Insurance verification API integration.<br/>
+        &bull; Reduces administrative overhead for dental offices.
+      </p>
+      <a href="https://github.com/nfantinodyer/PatientEligibility" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- MIPS to Binary Modal -->
+  <div class="modal" id="mipsModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>MIPS to Binary Converter</h3>
+      <p>
+        Assembler that converts MIPS assembly language instructions into machine code. 
+        Educational tool for understanding computer architecture and assembly language.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Implemented in Python.<br/>
+        &bull; Supports standard MIPS instruction set.<br/>
+        &bull; Demonstrates understanding of computer architecture fundamentals.
+      </p>
+      <a href="https://github.com/nfantinodyer/MipsToBinary" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- Words Modal -->
+  <div class="modal" id="wordsModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>Words</h3>
+      <p>
+        Anagram solver and word finder that generates possible words from given letters. 
+        Useful for word games and puzzles.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Built with Python.<br/>
+        &bull; Dictionary-based word matching algorithms.<br/>
+        &bull; Interactive command-line interface.
+      </p>
+      <a href="https://github.com/nfantinodyer/Words" target="_blank" rel="noopener noreferrer">
         View on GitHub
       </a>
     </div>
