@@ -4,325 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nicholas Fantino-Dyer – Portfolio</title>
-  <!-- Favicon (optional) -->
-  <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
-  <style>
-    /* =====================
-       GLOBAL STYLES
-    ===================== */
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #121212;
-      color: #eee;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-    }
-
-    a {
-      color: #62dafb;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    h1, h2, h3, h4 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    p {
-      margin-top: 0;
-      margin-bottom: 1rem;
-    }
-
-    /* =====================
-       NAVIGATION
-    ===================== */
-    header {
-      position: sticky;
-      top: 0;
-      background-color: #1f1f1f;
-      z-index: 999;
-      padding: 0.5rem 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: #bb86fc;
-    }
-
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .header-links a {
-        margin-left: 1rem;
-        font-weight: 500;
-        transition: color 0.2s ease;
-    }
-
-    .header-links a:hover {
-        color: #bb86fc;
-    }
-
-
-    /* =====================
-       MAIN CONTENT WRAPPER
-    ===================== */
-    .container {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-    }
-
-    /* =====================
-       ABOUT SECTION
-    ===================== */
-    #about .about-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    #about .profile-photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background-color: #333;
-      margin-bottom: 1rem;
-      /* Example placeholder: you can replace with an actual <img> tag */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      color: #aaa;
-    }
-
-    .profile-photo {
-        /* The container can have its own size if you wish, or you can size the img directly. */
-        width: 120px; 
-        height: 120px; 
-        overflow: hidden; /* Ensures no overflow if the image is bigger */
-        border-radius: 50%;
-    }
-
-    .profile-photo img {
-        width: 100%;       /* Fill the container's width */
-        height: 100%;      /* Fill the container's height */
-        object-fit: cover; /* Crop/zoom the image so it fills the circle */
-        border-radius: 50%;
-    }
-
-    /* =====================
-       EXPERIENCE SECTION
-    ===================== */
-    .experience-item {
-      background-color: #1f1f1f;
-      padding: 1rem;
-      border-radius: 5px;
-      margin-bottom: 1rem;
-    }
-
-    .experience-item h3 {
-      margin-bottom: 0.25rem;
-    }
-
-    .experience-item p {
-      margin-bottom: 0.5rem;
-    }
-
-    /* =====================
-       EDUCATION SECTION
-    ===================== */
-    .education-item {
-      background-color: #1f1f1f;
-      padding: 1rem;
-      border-radius: 5px;
-      margin-bottom: 1rem;
-    }
-
-    /* =====================
-       PROJECTS SECTION
-    ===================== */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-
-    .project-card {
-      background-color: #1f1f1f;
-      padding: 1rem;
-      border-radius: 5px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .project-card h4 {
-      margin-bottom: 0.5rem;
-    }
-
-    .project-card .project-image {
-      background-color: #333;
-      height: 140px;
-      margin-bottom: 1rem;
-      border-radius: 5px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-
-    .project-card .btn {
-      background-color: #333;
-      padding: 0.5rem 0.75rem;
-      border: none;
-      border-radius: 3px;
-      color: #eee;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    .project-card .btn:hover {
-      background-color: #444;
-    }
-
-    /* =====================
-       MODAL (PROJECT DETAILS)
-    ===================== */
-    .modal {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1000; /* Sit on top */
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background-color: #1f1f1f;
-      margin: 1rem;
-      padding: 1.5rem;
-      border-radius: 5px;
-      max-width: 600px;
-      width: 100%;
-      position: relative;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      color: #bbb;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-
-    .close-modal:hover {
-      color: #fff;
-    }
-
-    .project-image {
-        width: 100%;
-        max-height: 300px;  /* Limit maximum height */
-        overflow: hidden;
-        border-radius: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .project-image img {
-        max-height: 100%;
-        width: auto;
-        object-fit: contain;
-    }
-
-
-
-    /* =====================
-       SKILLS SECTION
-    ===================== */
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .skill-badge {
-      background-color: #333;
-      padding: 0.4rem 0.7rem;
-      border-radius: 3px;
-      font-size: 0.8rem;
-    }
-
-    /* =====================
-       FOOTER
-    ===================== */
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #1f1f1f;
-      color: #888;
-    }
-
-    /* =====================
-       RESPONSIVE
-    ===================== */
-    @media (max-width: 600px) {
-      .container {
-        margin: 1rem auto;
-        padding: 0 1rem;
-      }
-      #about .about-header {
-        margin-bottom: 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- ========== NAVIGATION ========== -->
@@ -341,90 +23,90 @@
   <!-- ========== MAIN CONTENT ========== -->
   <div class="container">
     <div class="header-links">
-        <a href="https://www.linkedin.com/in/nicholas-fantino-dyer-753868215/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://github.com/nfantinodyer" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/nicholas-fantino-dyer-753868215/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/nfantinodyer" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
-    <!-- ========== ABOUT SECTION ========== -->
+
+    <!-- ========== ABOUT ========== -->
     <section id="about">
       <div class="about-header">
-        <!-- Replace the div below with an actual <img> tag for your photo -->
         <div class="profile-photo">
-          <img src="images\profileImage.jpg" alt="NFD">
+          <img src="images/profileImage.jpg" alt="NFD">
         </div>
         <h1>Nicholas Fantino-Dyer (He/Him)</h1>
         <p>
-          Software dev blending ML, cloud, and game dev to build reliable solutions.  
-          Passionate about problem solving, exploring new systems, and collaboration.
+          Automation Engineer and recent MSCS graduate combining hands-on IT infrastructure experience
+          with custom software development. Specialized in using Python and SQL to replace manual workflows
+          with automated data pipelines. Currently completing AWS LLM and Kubernetes certifications
+          to deepen my cloud architecture and containerization expertise.
         </p>
       </div>
       <div>
         <h3>Achievements</h3>
         <p>
-          I earned first place in my Senior Capstone Project by creating a Unity-based maze simulation 
-          that used Q-Learning and Evolutionary models for optimal pathfinding, and was also honored 
-          on the 2024 Dean's Honor Roll. As an ERP Developer at Pacific Technology, I led the migration from Ellucian Banner 8 to Banner 9, 
-          documented pages, migrated COBOL scripts to SQL for a 25% efficiency boost, and oversaw research, testing, and troubleshooting. 
-          I developed and published the mobile game <em>Gunslinger</em> in Unity, available on Google Play with over 1,000 downloads. 
-          I integrated Cloudflare Workers with Grafana to automate data collection and build real-time performance dashboards. My research on Linux vs. Windows efficiency 
-          used Intel PCM and Python to uncover anomalies and confirm Linux's superior performance. I designed a custom 
-          MIPS instruction to count non-occurrences in an array, improving CPU functionality. I built a Python scraper for Oak Meadow 
-          Dental Center, saving staff 30 minutes a day. Currently studying for Kubernetes certification while pursuing interests in AI and cybersecurity.
+          I earned first place in my Senior Capstone Project by creating a Unity-based maze simulation
+          that used Q-Learning and Evolutionary models for optimal pathfinding, and was also honored
+          on the 2024 Dean's Honor Roll. As an ERP Developer at Pacific Technology, I directed the large-scale
+          ERP migration from Ellucian Banner 8 to Banner 9 and architected an AI-based automation solution
+          to translate legacy COBOL scripts into modern MySQL data pipelines, improving processing efficiency by over 25%.
+          I developed and published the mobile game <em>Gunslinger</em> in Unity, available on Google Play with over 1,000 downloads.
+          I integrated Cloudflare Workers with Grafana to automate data collection and build real-time performance dashboards. My research on Linux vs. Windows efficiency
+          used Intel PCM and Python to uncover anomalies and confirm Linux's superior performance. I designed a custom
+          MIPS instruction to count non-occurrences in an array, improving CPU functionality. I built Python automation scripts for Oak Meadow
+          Dental Center to bridge SoftDent and Practice Mojo, saving staff over 150 hours annually.
+          I engineered <em>OpenDrop</em>, a cross-platform file sharing application deployed on the Apple App Store,
+          Google Play Store, and Microsoft Partner Center.
         </p>
       </div>
     </section>
 
-    <!-- ========== EXPERIENCE SECTION ========== -->
+    <!-- ========== EXPERIENCE ========== -->
     <section id="experience">
       <h2>Experience</h2>
-      
-      <!-- IT Consultant - California Family Dental -->
+
       <div class="experience-item">
         <h3>IT Consultant</h3>
-        <p><strong>California Family Dental, Mountain View, CA</strong> (October 2025 – Current)</p>
+        <p><strong>Silicon Valley Dental, Santa Clara, CA</strong> (May 2025 – February 2026)</p>
         <ul>
-          <li>Deployed cost-effective Windows 11 systems on existing hardware.</li>
-          <li>Managed cloning, backups, Active Directory domain setup.</li>
-          <li>Upgraded Windows Server 2016 to 2022.</li>
-          <li>Provided user enablement training (email basics, desktop shortcuts) and ongoing support.</li>
+          <li>Architected a virtualization strategy under strict budget constraints, utilizing Hyper-V to host a legacy Windows 7 dental server environment on a single modern workstation.</li>
+          <li>Executed fleet-wide OS and software upgrades on deeply aged legacy hardware, extending equipment lifecycle while bringing the clinic up to modern security standards.</li>
+          <li>Overhauled the clinic's network infrastructure, redesigning DNS/DHCP scopes and configuring switches and routers to optimize server communication and reliability.</li>
+          <li>Managed domain migrations and Active Directory setup, transitioning from Windows Server 2012 R2 to 2022.</li>
         </ul>
       </div>
 
-      <!-- IT Consultant - Silicon Valley Dental -->
       <div class="experience-item">
         <h3>IT Consultant</h3>
-        <p><strong>Silicon Valley Dental, Santa Clara, CA</strong> (May 2025 – Current)</p>
+        <p><strong>California Family Dental, Mountain View, CA</strong> (October 2025 – December 2025)</p>
         <ul>
-          <li>Updated office computers and software to Windows 11 on unsupported hardware.</li>
-          <li>Managed cloning, backups, domain setup, and upgraded Windows Server 2012R2 to 2022.</li>
-          <li>Inspected and tested legacy hardware to verify usability and reliability.</li>
+          <li>Led end-to-end hardware procurement and deployment, setting up new workstations, establishing the clinic's local network, and configuring server cloning and backup protocols.</li>
+          <li>Performed Active Directory domain configuration and executed a full server upgrade from Windows Server 2016 to 2022.</li>
+          <li>Developed and delivered hands-on user enablement training for staff with minimal technical background, covering secure web browsing, malware avoidance, and basic application operations.</li>
         </ul>
       </div>
 
-      <!-- ERP Developer -->
       <div class="experience-item">
         <h3>Project Manager / ERP Developer</h3>
         <p><strong>Pacific Technology, Stockton, CA</strong> (April 2023 – December 2023)</p>
         <ul>
-          <li>Orchestrated migration from Ellucian Banner 8 to Banner 9.</li>
-          <li>Documented existing pages, ensuring seamless transition.</li>
-          <li>Built an AI model to migrate COBOL scripts to SQL, increasing efficiency by 25%.</li>
-          <li>Led research, testing, and troubleshooting across the project.</li>
+          <li>Directed the large-scale ERP migration from Ellucian Banner 8 to 9, collaborating with cross-functional teams to translate user needs into technical requirements and ensuring a seamless transition with minimal business disruption.</li>
+          <li>Architected and deployed an AI-based automation solution to translate legacy COBOL scripts into modern MySQL data pipelines, improving processing efficiency by over 25%.</li>
+          <li>Authored comprehensive technical documentation and change management plans, empowering non-technical stakeholders to independently navigate the upgraded systems.</li>
         </ul>
       </div>
 
-      <!-- IT, Receptionist, Dental Assistant -->
       <div class="experience-item">
         <h3>IT Consultant & Dental Assistant</h3>
-        <p><strong>Oak Meadow Dental Center, Los Gatos, CA</strong> (Seasonal: June 2016 – Current)</p>
+        <p><strong>Oak Meadow Dental Center, Los Gatos, CA</strong> (June 2016 – Present)</p>
         <ul>
-          <li>Provided IT support for the office, including updates and vendor coordination.</li>
-          <li>Automated repetitive daily tasks with Python, saving staff 30 minutes per day.</li>
-          <li>Assisted clinical staff with procedures and trained new employees on office policies.</li>
+          <li>Served as the long-term IT administrator, managing all system updates, vendor coordination, and general hardware/software support for the practice.</li>
+          <li>Developed a custom Python automation script to bridge the data gap between Practice Mojo and SoftDent software, eliminating manual data entry and streamlining a critical daily workflow.</li>
+          <li>Assist clinical staff with daily operations and lead the onboarding and training of new employees on clinical procedures and technical systems.</li>
         </ul>
       </div>
     </section>
 
-    <!-- ========== EDUCATION SECTION ========== -->
+    <!-- ========== EDUCATION ========== -->
     <section id="education">
       <h2>Education</h2>
       <div class="education-item">
@@ -437,14 +119,25 @@
       </div>
     </section>
 
-    <!-- ========== PROJECTS SECTION ========== -->
+    <!-- ========== PROJECTS ========== -->
     <section id="projects">
       <h2>Projects</h2>
       <div class="projects-grid">
+
+        <!-- OpenDrop -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/opendrop.png" alt="[ OpenDrop Icon ]">
+          </div>
+          <h4>OpenDrop</h4>
+          <p>Cross-platform file sharing between mobile and desktop over WiFi, cloud, or Bluetooth.</p>
+          <button class="btn" data-modal="opendropModal">View Details</button>
+        </div>
+
         <!-- RecallFlow -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\recallflow.png" alt="[ RecallFlow Screenshot ]">
+            <img src="images/recallflow.png" alt="[ RecallFlow Screenshot ]">
           </div>
           <h4>RecallFlow</h4>
           <p>SaaS platform for automated dental appointment reminders.</p>
@@ -454,7 +147,7 @@
         <!-- Gunslinger -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\gunslinger.png" alt="[ Gunslinger Screenshot ]">
+            <img src="images/gunslinger.png" alt="[ Gunslinger Screenshot ]">
           </div>
           <h4>Gunslinger</h4>
           <p>Arcade shooter with 1,000+ downloads on Google Play.</p>
@@ -464,27 +157,27 @@
         <!-- Path Finding Project -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\pathfindingproject.png" alt="[ Path Finding Screenshot ]">
+            <img src="images/pathfindingproject.png" alt="[ Path Finding Screenshot ]">
           </div>
           <h4>Maze Learning Simulation</h4>
           <p>Comparing Q-Learning vs Evolutionary models for pathfinding.</p>
           <button class="btn" data-modal="pathfindingModal">View Details</button>
         </div>
 
-        <!-- Cloudflare Worker Automation Project -->
+        <!-- Cloudflare Worker Automation -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\grafanascreenshot.png" alt="[ Cloudflare Worker Screenshot ]">
+            <img src="images/grafanascreenshot.png" alt="[ Cloudflare Worker Screenshot ]">
           </div>
           <h4>Cloudflare Worker Automation</h4>
           <p>Integrated Cloudflare Workers with Grafana for real-time dashboards.</p>
           <button class="btn" data-modal="cloudflareModal">View Details</button>
         </div>
 
-        <!-- Oak Meadow Dental Center Project -->
+        <!-- Clinic Automation -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\pmojo.png" alt="[ Dental Project Screenshot ]">
+            <img src="images/pmojo.png" alt="[ Dental Project Screenshot ]">
           </div>
           <h4>Clinic Automation</h4>
           <p>Screen scraper program to automate repetitive data entry.</p>
@@ -494,7 +187,7 @@
         <!-- SQL ChatBot -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\sqlchatbot.png" alt="[ SQL ChatBot Screenshot ]">
+            <img src="images/sqlchatbot.png" alt="[ SQL ChatBot Screenshot ]">
           </div>
           <h4>SQL ChatBot</h4>
           <p>Natural language interface for database queries using AI.</p>
@@ -504,7 +197,7 @@
         <!-- Linux vs Windows Energy Efficiency -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\CPUEnergyEstimation.png" alt="[ Linux vs Windows Screenshot ]">
+            <img src="images/CPUEnergyEstimation.png" alt="[ Linux vs Windows Screenshot ]">
           </div>
           <h4>Linux vs Windows Energy Efficiency</h4>
           <p>Analyzed energy efficiency of CPUs in Linux and Windows.</p>
@@ -514,7 +207,7 @@
         <!-- AI Creating App -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\aicreating.png" alt="[ AI Creating App Screenshot ]">
+            <img src="images/aicreating.png" alt="[ AI Creating App Screenshot ]">
           </div>
           <h4>AI Creating App</h4>
           <p>Python application for AI-powered content generation.</p>
@@ -524,7 +217,7 @@
         <!-- Rust OS -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\rustos.png" alt="[ Rust OS Screenshot ]">
+            <img src="images/rustos.png" alt="[ Rust OS Screenshot ]">
           </div>
           <h4>Rust OS</h4>
           <p>Operating system kernel development in Rust.</p>
@@ -534,7 +227,7 @@
         <!-- UDP Payload -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\udppayload.png" alt="[ UDP Payload Screenshot ]">
+            <img src="images/udppayload.png" alt="[ UDP Payload Screenshot ]">
           </div>
           <h4>UDP Payload</h4>
           <p>Network programming project implementing UDP communication.</p>
@@ -544,7 +237,7 @@
         <!-- Patient Eligibility -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\patienteligibility.png" alt="[ Patient Eligibility Screenshot ]">
+            <img src="images/patienteligibility.png" alt="[ Patient Eligibility Screenshot ]">
           </div>
           <h4>Patient Eligibility</h4>
           <p>Automated patient insurance eligibility verification system.</p>
@@ -554,7 +247,7 @@
         <!-- MIPS to Binary -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\mipstobinary.png" alt="[ MIPS to Binary Screenshot ]">
+            <img src="images/mipstobinary.png" alt="[ MIPS to Binary Screenshot ]">
           </div>
           <h4>MIPS to Binary Converter</h4>
           <p>Assembler that converts MIPS assembly to machine code.</p>
@@ -564,48 +257,108 @@
         <!-- Words -->
         <div class="project-card">
           <div class="project-image">
-            <img src="images\words.png" alt="[ Words Screenshot ]">
+            <img src="images/words.png" alt="[ Words Screenshot ]">
           </div>
           <h4>Words</h4>
           <p>Anagram and word search tool for finding possible words.</p>
           <button class="btn" data-modal="wordsModal">View Details</button>
         </div>
+
+      </div><!-- /.projects-grid -->
     </section>
 
-    <!-- ========== SKILLS SECTION ========== -->
+    <!-- ========== SKILLS ========== -->
     <section id="skills">
       <h2>Skills</h2>
       <div class="skills-list">
-        <span class="skill-badge">Java</span>
         <span class="skill-badge">Python</span>
+        <span class="skill-badge">Java</span>
         <span class="skill-badge">C/C++</span>
         <span class="skill-badge">C#</span>
         <span class="skill-badge">JavaScript</span>
-        <span class="skill-badge">SQL</span>
+        <span class="skill-badge">Dart</span>
+        <span class="skill-badge">MySQL</span>
+        <span class="skill-badge">Bash</span>
+        <span class="skill-badge">Flutter</span>
+        <span class="skill-badge">FastAPI</span>
         <span class="skill-badge">Linux</span>
-        <span class="skill-badge">Android Studio</span>
+        <span class="skill-badge">Docker</span>
         <span class="skill-badge">Cloudflare Workers</span>
         <span class="skill-badge">Grafana</span>
         <span class="skill-badge">Git</span>
-        <span class="skill-badge">UML</span>
+        <span class="skill-badge">Android Studio</span>
+        <span class="skill-badge">Network Administration</span>
+        <span class="skill-badge">Automation</span>
+        <span class="skill-badge">Virtualization</span>
       </div>
     </section>
   </div>
 
   <!-- ========== FOOTER ========== -->
   <footer>
-    <p>&copy; 2025 Nicholas Fantino-Dyer</p>
+    <p>&copy; 2026 Nicholas Fantino-Dyer</p>
   </footer>
 
-  <!-- ========== MODALS FOR PROJECT DETAILS ========== -->
+  <!-- ========== MODALS ========== -->
+
+  <!-- OpenDrop Modal -->
+  <div class="modal" id="opendropModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>OpenDrop</h3>
+      <p>
+        Cross-platform file sharing application that bridges iOS, Android, Windows, macOS, and Linux.
+        Transfer files seamlessly between mobile devices and desktops over WiFi, cloud sync, or Bluetooth Low Energy.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Built with Flutter/Dart (mobile) and Python/FastAPI (desktop).<br/>
+        &bull; Multiple transfer methods: local WiFi, cloud tunnels, and BLE.<br/>
+        &bull; QR code pairing, drag-and-drop, and multi-device mesh networking.<br/>
+        &bull; File browsing, batch operations, media conversion, and trash recovery.<br/>
+        &bull; Freemium SaaS model with RevenueCat subscription billing.<br/>
+        &bull; Cloud infrastructure on Cloudflare Workers and Fly.io relay servers.
+      </p>
+      <a href="https://www.nfdgames.com/OpenDrop/" target="_blank" rel="noopener noreferrer">
+        Visit OpenDrop
+      </a>
+    </div>
+  </div>
+
+  <!-- RecallFlow Modal -->
+  <div class="modal" id="recallflowModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>RecallFlow</h3>
+      <p>
+        Production-ready SaaS platform for automating dental appointment reminders. Built from concept
+        to full deployment with comprehensive billing, authentication, and reminder functionality.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Implemented Stripe integration for subscription billing.<br/>
+        &bull; JWT authentication and secure user management.<br/>
+        &bull; Cloudflare Workers KV storage optimization.<br/>
+        &bull; Automated appointment reminder system for dental practices.<br/>
+        &bull; Full-stack development with Node.js and JavaScript.
+      </p>
+      <p>
+        <a href="https://github.com/nfantinodyer/RecallFlow" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </p>
+      <p>
+        <a href="https://recallflow.org" target="_blank" rel="noopener noreferrer">Visit RecallFlow</a>
+      </p>
+    </div>
+  </div>
+
   <!-- Gunslinger Modal -->
   <div class="modal" id="gunslingerModal">
     <div class="modal-content">
       <button class="close-modal">&times;</button>
       <h3>Gunslinger</h3>
       <p>
-        In this arcade shooter, the player navigates down a linear randomly generated path. 
-        Brawler and gunner enemies can decrease your damage if you are hit by them. 
+        In this arcade shooter, the player navigates down a linear randomly generated path.
+        Brawler and gunner enemies can decrease your damage if you are hit by them.
         Collect boosts and reach the end to receive your gold prize!
       </p>
       <p>
@@ -626,8 +379,8 @@
       <button class="close-modal">&times;</button>
       <h3>Maze Learning Simulation</h3>
       <p>
-        Developed a maze simulation in Unity (C#) where a Q-Learning model and an 
-        Evolutionary model compete to learn the optimal route to the end. 
+        Developed a maze simulation in Unity (C#) where a Q-Learning model and an
+        Evolutionary model compete to learn the optimal route to the end.
       </p>
       <p>
         <strong>Key Highlights:</strong><br/>
@@ -641,13 +394,34 @@
     </div>
   </div>
 
+  <!-- Cloudflare Worker Modal -->
+  <div class="modal" id="cloudflareModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>Cloudflare Worker Automation Project</h3>
+      <p>
+        Integrated Cloudflare Workers with Grafana to fetch real-time data and visualize it for
+        performance monitoring and troubleshooting.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Automated data collection and processing pipelines.<br/>
+        &bull; Developed a script to dynamically generate and refresh API keys for high uptime.<br/>
+        &bull; Built interactive dashboards for real-time system monitoring.
+      </p>
+      <a href="https://nfantinodyer.grafana.net/public-dashboards/c21ba4f2c80a45a488836a89e703b17e" target="_blank" rel="noopener noreferrer">
+        View on Grafana
+      </a>
+    </div>
+  </div>
+
   <!-- Oak Meadow Modal -->
   <div class="modal" id="oakModal">
     <div class="modal-content">
       <button class="close-modal">&times;</button>
       <h3>Clinic Automation</h3>
       <p>
-        Screen scraper program built to automate repetitive data entry tasks, simulating 
+        Screen scraper program built to automate repetitive data entry tasks, simulating
         human interaction with dental practice management software.
       </p>
       <p>
@@ -662,23 +436,23 @@
     </div>
   </div>
 
-  <!-- Cloudflare Worker Modal -->
-  <div class="modal" id="cloudflareModal">
+  <!-- SQL ChatBot Modal -->
+  <div class="modal" id="sqlchatbotModal">
     <div class="modal-content">
       <button class="close-modal">&times;</button>
-      <h3>Cloudflare Worker Automation Project</h3>
+      <h3>SQL ChatBot</h3>
       <p>
-        Integrated Cloudflare Workers with Grafana to fetch real-time data and visualize it for 
-        performance monitoring and troubleshooting.
+        Natural language interface for database queries using AI. Allows users to interact with
+        databases using conversational language instead of SQL syntax.
       </p>
       <p>
         <strong>Key Highlights:</strong><br/>
-        &bull; Automated data collection and processing pipelines.<br/>
-        &bull; Developed a script to dynamically generate and refresh API keys for high uptime.<br/>
-        &bull; Built interactive dashboards for real-time system monitoring.
+        &bull; Built with Python and AI/ML technologies.<br/>
+        &bull; Translates natural language to SQL queries.<br/>
+        &bull; Simplifies database interaction for non-technical users.
       </p>
-      <a href="https://nfantinodyer.grafana.net/public-dashboards/c21ba4f2c80a45a488836a89e703b17e" target="_blank" rel="noopener noreferrer">
-        View on Grafana
+      <a href="https://github.com/nfantinodyer/SQLChatBot" target="_blank" rel="noopener noreferrer">
+        View on GitHub
       </a>
     </div>
   </div>
@@ -698,53 +472,6 @@
         &bull; Performed comprehensive performance analysis under different workload conditions.
       </p>
       <a href="https://github.com/nfantinodyer/CPUEnergyEstimation" target="_blank" rel="noopener noreferrer">
-        View on GitHub
-      </a>
-    </div>
-  </div>
-
-  <!-- RecallFlow Modal -->
-  <div class="modal" id="recallflowModal">
-    <div class="modal-content">
-      <button class="close-modal">&times;</button>
-      <h3>RecallFlow</h3>
-      <p>
-        Production-ready SaaS platform for automating dental appointment reminders. Built from concept 
-        to full deployment with comprehensive billing, authentication, and reminder functionality.
-      </p>
-      <p>
-        <strong>Key Highlights:</strong><br/>
-        &bull; Implemented Stripe integration for subscription billing.<br/>
-        &bull; JWT authentication and secure user management.<br/>
-        &bull; Cloudflare Workers KV storage optimization.<br/>
-        &bull; Automated appointment reminder system for dental practices.<br/>
-        &bull; Full-stack development with Node.js and JavaScript.
-      </p>
-      <p>
-        <a href="https://github.com/nfantinodyer/RecallFlow" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-      </p>
-      <p>
-        <a href="https://recallflow.org" target="_blank" rel="noopener noreferrer">Visit RecallFlow</a>
-      </p>
-    </div>
-  </div>
-
-  <!-- SQL ChatBot Modal -->
-  <div class="modal" id="sqlchatbotModal">
-    <div class="modal-content">
-      <button class="close-modal">&times;</button>
-      <h3>SQL ChatBot</h3>
-      <p>
-        Natural language interface for database queries using AI. Allows users to interact with 
-        databases using conversational language instead of SQL syntax.
-      </p>
-      <p>
-        <strong>Key Highlights:</strong><br/>
-        &bull; Built with Python and AI/ML technologies.<br/>
-        &bull; Translates natural language to SQL queries.<br/>
-        &bull; Simplifies database interaction for non-technical users.
-      </p>
-      <a href="https://github.com/nfantinodyer/SQLChatBot" target="_blank" rel="noopener noreferrer">
         View on GitHub
       </a>
     </div>
@@ -776,7 +503,7 @@
       <button class="close-modal">&times;</button>
       <h3>Rust OS</h3>
       <p>
-        Low-level operating system kernel development project built in Rust, exploring systems 
+        Low-level operating system kernel development project built in Rust, exploring systems
         programming and OS fundamentals.
       </p>
       <p>
@@ -797,7 +524,7 @@
       <button class="close-modal">&times;</button>
       <h3>UDP Payload</h3>
       <p>
-        Network programming project implementing UDP communication protocols in C. Focuses on 
+        Network programming project implementing UDP communication protocols in C. Focuses on
         understanding low-level networking and packet handling.
       </p>
       <p>
@@ -818,7 +545,7 @@
       <button class="close-modal">&times;</button>
       <h3>Patient Eligibility</h3>
       <p>
-        Automated system for verifying patient insurance eligibility in dental practices. 
+        Automated system for verifying patient insurance eligibility in dental practices.
         Streamlines the eligibility verification process and reduces manual work.
       </p>
       <p>
@@ -839,7 +566,7 @@
       <button class="close-modal">&times;</button>
       <h3>MIPS to Binary Converter</h3>
       <p>
-        Assembler that converts MIPS assembly language instructions into machine code. 
+        Assembler that converts MIPS assembly language instructions into machine code.
         Educational tool for understanding computer architecture and assembly language.
       </p>
       <p>
@@ -860,7 +587,7 @@
       <button class="close-modal">&times;</button>
       <h3>Words</h3>
       <p>
-        Anagram solver and word finder that generates possible words from given letters. 
+        Anagram solver and word finder that generates possible words from given letters.
         Useful for word games and puzzles.
       </p>
       <p>
@@ -875,35 +602,6 @@
     </div>
   </div>
 
-  <!-- ========== JS FOR MODALS ========== -->
-  <script>
-    // Open modal
-    document.querySelectorAll('.btn[data-modal]').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const modalId = this.getAttribute('data-modal');
-        const modal = document.getElementById(modalId);
-        if (modal) {
-          modal.style.display = 'flex';
-        }
-      });
-    });
-
-    // Close modal
-    document.querySelectorAll('.close-modal').forEach(closeBtn => {
-      closeBtn.addEventListener('click', function() {
-        this.closest('.modal').style.display = 'none';
-      });
-    });
-
-    // Close modal when clicking outside the modal-content
-    window.addEventListener('click', function(e) {
-      const modals = document.querySelectorAll('.modal');
-      modals.forEach(modal => {
-        if (e.target === modal) {
-          modal.style.display = 'none';
-        }
-      });
-    });
-  </script>
+  <script src="scripts.js"></script>
 </body>
 </html>
