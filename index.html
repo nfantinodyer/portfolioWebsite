@@ -35,10 +35,11 @@
         </div>
         <h1>Nicholas Fantino-Dyer (He/Him)</h1>
         <p>
-          Automation Engineer and recent MSCS graduate combining hands-on IT infrastructure experience
-          with custom software development. Specialized in using Python and SQL to replace manual workflows
-          with automated data pipelines. Currently completing AWS LLM and Kubernetes certifications
-          to deepen my cloud architecture and containerization expertise.
+          Network and Security Administrator at Precision Valve and MSCS graduate, combining hands-on
+          IT infrastructure experience with custom software development. Specialized in using Python
+          and SQL to replace manual workflows with automated data pipelines. AWS Certified AI
+          Practitioner, currently completing a Kubernetes certification to deepen my cloud
+          architecture and containerization expertise.
         </p>
       </div>
       <div>
@@ -51,7 +52,9 @@
           to translate legacy COBOL scripts into modern MySQL data pipelines, improving processing efficiency by over 25%.
           I developed and published the mobile game <em>Gunslinger</em> in Unity, available on Google Play with over 1,000 downloads.
           I integrated Cloudflare Workers with Grafana to automate data collection and build real-time performance dashboards. My research on Linux vs. Windows efficiency
-          used Intel PCM and Python to uncover anomalies and confirm Linux's superior performance. I designed a custom
+          used Intel PCM and Python to uncover anomalies and confirm Linux's superior performance. I wrote custom
+          CUDA kernels implementing Ergo's Autolykos v2 proof-of-work on an RTX 5080, benchmarked head-to-head
+          against the established miners. I designed a custom
           MIPS instruction to count non-occurrences in an array, improving CPU functionality. I built Python automation scripts for Oak Meadow
           Dental Center to bridge SoftDent and Practice Mojo, saving staff over 150 hours annually.
           I engineered <em>OpenDrop</em>, a cross-platform file sharing application deployed on the Apple App Store,
@@ -63,6 +66,17 @@
     <!-- ========== EXPERIENCE ========== -->
     <section id="experience">
       <h2>Experience</h2>
+
+      <div class="experience-item">
+        <h3>Network and Security Administrator</h3>
+        <p><strong>Precision Valve, Greenville, SC</strong> (July 2026 – Present)</p>
+        <ul>
+          <li>Migrating the company intranet from IBM i DDM files and classic ASP pages to a modern Java Spring backend with an Angular frontend.</li>
+          <li>Developing internal business applications to support day-to-day operations.</li>
+          <li>Researching and evaluating new server hardware for the company's infrastructure refresh.</li>
+          <li>Handling day-to-day support tickets alongside network and security administration.</li>
+        </ul>
+      </div>
 
       <div class="experience-item">
         <h3>Data Analyst (Internship)</h3>
@@ -168,6 +182,16 @@
           <h4>RecallFlow</h4>
           <p>SaaS platform for automated dental appointment reminders.</p>
           <button class="btn" data-modal="recallflowModal">View Details</button>
+        </div>
+
+        <!-- CUDA Miner -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/cudaminer.png" alt="[ CUDA Miner ]">
+          </div>
+          <h4>Custom CUDA Miner (Ergo)</h4>
+          <p>Custom CUDA kernels for Ergo's Autolykos v2 proof-of-work on an RTX 5080.</p>
+          <button class="btn" data-modal="cudaminerModal">View Details</button>
         </div>
 
         <!-- Gunslinger -->
@@ -300,6 +324,7 @@
         <span class="skill-badge">Python</span>
         <span class="skill-badge">Java</span>
         <span class="skill-badge">C/C++</span>
+        <span class="skill-badge">CUDA</span>
         <span class="skill-badge">C#</span>
         <span class="skill-badge">JavaScript</span>
         <span class="skill-badge">Dart</span>
@@ -307,6 +332,8 @@
         <span class="skill-badge">Bash</span>
         <span class="skill-badge">Flutter</span>
         <span class="skill-badge">FastAPI</span>
+        <span class="skill-badge">Spring</span>
+        <span class="skill-badge">Angular</span>
         <span class="skill-badge">Linux</span>
         <span class="skill-badge">Docker</span>
         <span class="skill-badge">Cloudflare Workers</span>
@@ -373,6 +400,24 @@
       </p>
       <p>
         <a href="https://recallflow.org" target="_blank" rel="noopener noreferrer">Visit RecallFlow</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- CUDA Miner Modal -->
+  <div class="modal" id="cudaminerModal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h3>Custom CUDA Miner for Ergo</h3>
+      <p>
+        Custom CUDA kernels implementing Ergo's Autolykos v2 proof-of-work, written for an
+        RTX 5080 and benchmarked head-to-head against the established reference miners.
+      </p>
+      <p>
+        <strong>Key Highlights:</strong><br/>
+        &bull; Wrote multiple CUDA kernel variants exploring an original mining strategy rather than copying the reference approach.<br/>
+        &bull; Benchmarked each variant against the standard implementation; the best came in slightly under its efficiency.<br/>
+        &bull; Built on GPU mining experience going back to around 2020 on an RTX 2080 Ti.
       </p>
     </div>
   </div>
